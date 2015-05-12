@@ -31,7 +31,6 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "gh-got": "^1.0.3",
-    "got": "^3.2.0",
     "meow": "^3.1.0"
   },
   "devDependencies": {

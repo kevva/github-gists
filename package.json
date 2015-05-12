@@ -1,0 +1,40 @@
+{
+  "name": "github-gists",
+  "version": "1.0.0",
+  "description": "Get all gists from a GitHub user",
+  "license": "MIT",
+  "repository": "kevva/github-gists",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bin": {
+    "github-gists": "cli.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "api",
+    "cli",
+    "gist",
+    "github",
+    "user"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "gh-got": "^1.0.3",
+    "got": "^3.2.0",
+    "meow": "^3.1.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}

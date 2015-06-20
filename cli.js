@@ -13,7 +13,7 @@ var cli = meow({
 		'',
 		'Options',
 		'  -t, --token    GitHub authentication token'
-	].join('\n')
+	]
 }, {
 	string: ['token'],
 	alias: {t: 'token'}

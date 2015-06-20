@@ -1,5 +1,4 @@
 'use strict';
-
 var ghGot = require('gh-got');
 var page = 1;
 var ret = [];

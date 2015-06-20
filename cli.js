@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-
 var chalk = require('chalk');
 var meow = require('meow');
 var githubGists = require('./');
@@ -19,7 +18,7 @@ var cli = meow({
 	alias: {t: 'token'}
 });
 
-if (!cli.input[0]) {
+if (!cli.input.length) {
 	console.error('User required');
 	process.exit(1);
 }

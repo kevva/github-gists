@@ -13,9 +13,9 @@ $ npm install --save github-gists
 ## Usage
 
 ```js
-var githubGists = require('github-gists');
+const githubGists = require('github-gists');
 
-githubGists('johndoe', function (err, data) {
+githubGists('johndoe').then(data => {
 	console.log(data);
 	//=> [{url: https://api.github.com/gists/1234567', ...}, ...]
 });
@@ -24,7 +24,7 @@ githubGists('johndoe', function (err, data) {
 
 ## API
 
-### githubGists(user, [options], callback)
+### githubGists(user, [options])
 
 #### user
 
@@ -41,16 +41,6 @@ Token to authenticate with. Use this to increase the request count. GitHub suppo
 up to 60 unauthenticated request per hour.
 
 If you don't have a token you can generate a new one [here](https://github.com/settings/tokens/new).
-
-#### callback(err, data)
-
-Type: `function`
-
-##### data
-
-Type: `array`
-
-Contains an array with all GitHub gists.
 
 
 ## CLI

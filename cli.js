@@ -23,12 +23,7 @@ if (!cli.input.length) {
 	process.exit(1);
 }
 
-githubGists(cli.input[0], cli.flags, function (err, data) {
-	if (err) {
-		console.error(err.message);
-		process.exit(1);
-	}
-
+githubGists(cli.input[0], cli.flags).then(function (data) {
 	data.forEach(function (gist) {
 		console.log(gist.description + ' ' + chalk.dim(gist.html_url));
 	});

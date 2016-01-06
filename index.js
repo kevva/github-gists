@@ -1,47 +1,29 @@
 'use strict';
 var ghGot = require('gh-got');
-var page = 1;
-var ret = [];
+var Promise = require('pinkie-promise');
 
-function getGists(user, opts, cb) {
-	var url = 'users/' + user + '/gists?per_page=100&page=' + page;
-
-	ghGot(url, opts, function (err, data, res) {
-		if (err) {
-			cb(err);
-			return;
-		}
-
-		ret = ret.concat(data);
-
-		if (res.headers.link && res.headers.link.indexOf('next') !== -1) {
-			page++;
-			getGists(user, opts, cb);
-			return;
-		}
-
-		cb(null, ret);
-	});
-}
-
-module.exports = function (user, opts, cb) {
+module.exports = function (user, opts) {
 	opts = opts || {};
 
+	var page = 1;
+	var ret = [];
+
 	if (typeof user !== 'string') {
-		throw new Error('User required');
+		return Promise.reject(new TypeError('Expected a string'));
 	}
 
-	if (typeof opts !== 'object') {
-		cb = opts;
-		opts = {};
-	}
+	return (function loop() {
+		var url = 'users/' + user + '/gists?per_page=100&page=' + page;
 
-	getGists(user, opts, function (err, data) {
-		if (err) {
-			cb(err);
-			return;
-		}
+		return ghGot(url, opts).then(function (res) {
+			ret = ret.concat(res.body);
 
-		cb(null, data);
-	});
+			if (res.headers.link && res.headers.link.indexOf('next') !== -1) {
+				page++;
+				return loop();
+			}
+
+			return ret;
+		});
+	})();
 };

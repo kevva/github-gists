@@ -1,11 +1,7 @@
-'use strict';
-var test = require('ava');
-var githubGists = require('./');
+import test from 'ava';
+import fn from './';
 
-test(function (t) {
-	t.plan(1);
-
-	githubGists('sindresorhus').then(function (data) {
-		t.assert(data.length, data.length);
-	});
+test(async t => {
+	const data = await fn('sindresorhus');
+	t.ok(data.length);
 });

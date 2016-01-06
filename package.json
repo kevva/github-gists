@@ -16,7 +16,7 @@
     "github-gists": "cli.js"
   },
   "scripts": {
-    "test": "ava"
+    "test": "xo && ava"
   },
   "files": [
     "index.js"
@@ -35,6 +35,7 @@
     "pinkie-promise": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "*"
+    "ava": "*",
+    "xo": "*"
   }
 }

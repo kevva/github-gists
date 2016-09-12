@@ -28,12 +28,13 @@ githubGists('johndoe').then(data => {
 
 #### user
 
-*Required*  
 Type: `string`
 
 Username to fetch gists from.
 
-#### options.token
+#### options
+
+##### token
 
 Type: `string`
 
@@ -52,12 +53,12 @@ $ npm install --global github-gists
 ```
 $ github-gists --help
 
-  Usage
+  Example
     $ github-gists kevva
     $ github-gists kevva --token 523ef69119eadg12
 
   Options
-    -t, --token    GitHub authentication token
+    -t, --token  GitHub authentication token
 ```
 
 

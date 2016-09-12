@@ -1,24 +1,23 @@
 'use strict';
-var ghGot = require('gh-got');
-var Promise = require('pinkie-promise');
+const ghGot = require('gh-got');
 
-module.exports = function (user, opts) {
+module.exports = (user, opts) => {
 	opts = opts || {};
 
-	var page = 1;
-	var ret = [];
+	let page = 1;
+	let ret = [];
 
 	if (typeof user !== 'string') {
 		return Promise.reject(new TypeError('Expected a string'));
 	}
 
 	return (function loop() {
-		var url = 'users/' + user + '/gists?per_page=100&page=' + page;
+		const url = 'users/' + user + '/gists?per_page=100&page=' + page;
 
-		return ghGot(url, opts).then(function (res) {
+		return ghGot(url, opts).then(res => {
 			ret = ret.concat(res.body);
 
-			if (res.headers.link && res.headers.link.indexOf('next') !== -1) {
+			if (res.headers.link && res.headers.link.includes('next')) {
 				page++;
 				return loop();
 			}

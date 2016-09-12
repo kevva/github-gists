@@ -1,7 +1,6 @@
 import test from 'ava';
-import fn from './';
+import m from './';
 
 test(async t => {
-	const data = await fn('sindresorhus');
-	t.ok(data.length);
+	t.truthy((await m('sindresorhus')).length);
 });

@@ -44,22 +44,9 @@ up to 60 unauthenticated request per hour.
 If you don't have a token you can generate a new one [here](https://github.com/settings/tokens/new).
 
 
-## CLI
+## Related
 
-```
-$ npm install --global github-gists
-```
-
-```
-$ github-gists --help
-
-  Example
-    $ github-gists kevva
-    $ github-gists kevva --token 523ef69119eadg12
-
-  Options
-    -t, --token  GitHub authentication token
-```
+* [github-gists-cli](https://github.com/kevva/github-gists-cli) - CLI for this module
 
 
 ## License

@@ -12,9 +12,6 @@
   "engines": {
     "node": ">=4"
   },
-  "bin": {
-    "github-gists": "cli.js"
-  },
   "scripts": {
     "test": "xo && ava"
   },
@@ -23,15 +20,12 @@
   ],
   "keywords": [
     "api",
-    "cli",
     "gist",
     "github",
     "user"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
-    "gh-got": "^5.0.0",
-    "meow": "^3.3.0"
+    "gh-got": "^5.0.0"
   },
   "devDependencies": {
     "ava": "*",
